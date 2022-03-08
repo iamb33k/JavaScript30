@@ -42,6 +42,19 @@
 
 <button></button>
 <script>
+  const divs = document.querySelectorAll('div');
+
+  function logText(e){
+    console.log(this.classList.value);
+    e.stopPropagation(); //this stops bubbling
+  }
+
+  divs.forEach(div => div.addEventListener('click', logText,));
+
+  //bubbling causes a click on 3 to trigger a click on one and two also
+  //capture goes from top down, captures all events, and bubble triggers from bottom up
+  //capture:true runs function on way down, not on bubble up
+  //once:true means listen for click and unbind self, will never run more than once
 
 </script>
 </body>
